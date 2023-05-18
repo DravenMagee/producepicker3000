@@ -1,0 +1,98 @@
+large_avocado = 4225
+small_avocado = 4046
+jumbo_avocado = 4770
+
+fuji_apple = 4131
+red_delicious = 4016
+cosmic_crisp = 3507
+
+
+avocado_types = [large_avocado, small_avocado, jumbo_avocado]
+apple_types = [fuji_apple, red_delicious]
+
+
+def main():
+    while True:
+        print(
+            "-Welcome to the PRODUCE PICKER 3000 App. Press 'q' to Quit.-")
+        user = input(">>Enter a type of produce: ")
+        if user.lower() == "avocado":
+            avocados_search()
+            
+        
+        elif user.lower() == "apple":
+            apples_search()
+            
+        
+        if user.lower() == "q":
+            print("Goodbye!")
+            quit()
+        
+        
+def next_search():
+    user = input("Press 'enter' to search again...")
+    if user.lower() == "":
+        main()
+
+def apples_search():
+    while True:
+        print("-SEARCHING APPLES-")
+        user = input("Enter the PLU code or the name: ")
+        if user.isdigit():
+            if user == "4131":
+                apples_fuji()
+                
+            if user == "4016":
+                apples_red_delicious()
+                
+        if user.lower() == "fuji":
+            apples_fuji()
+            
+        if user.lower() == "red delicious":
+            apples_red_delicious()
+            
+        if user.lower() == "b":
+            back_button()
+
+
+def avocados_search(): 
+    while True:
+        print("-SEARCHING AVOCADOS-")
+        user = input("Enter the PLU code or the name: ")
+        if user.isdigit():
+            if user == "4225":
+                avocados_large()
+                
+            if user == "4016":
+                apples_red_delicious()
+                
+        if user.lower() == "large avocado":
+            avocados_large()
+            
+        if user.lower() == "small":
+            apples_red_delicious()
+            
+        if user.lower() == "b":
+            back_button()
+
+
+def apples_fuji():
+    print(f"Fuji Apples PLU {fuji_apple} - Parent Apple: Red Delicious \n Good Sub: Red Delicious")
+    next_search()
+
+def apples_red_delicious():
+    print("Red Delicious PLU 4016 - Parent Apple: None \n Good Sub: Gala, Fuji")
+    next_search()
+    
+def avocados_large():
+    print("Large Avocados PLU 4225 - Good Sub: Jumbo Avocados")
+    next_search()
+
+def back_button():
+    print("Going back!")
+    main()
+
+
+
+
+main()
